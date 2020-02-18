@@ -6,14 +6,28 @@ import logo from './logo.svg';
 import './App.css';
 import NewFeedForm from './NewFeedForm';
 
-function App() extends React.Component{
+class App extends React.Component{
+
+  constructor(props) {
+  super(props);
+  this.state = {
+    masterPostList: []
+  };
+  this.handleAddingANewPost = this.handleAddingANewPost.bind(this)
+}
+handleAddingANewPost(newPost){
+  var newMasterPostList = this.state.masterPostList.slice();
+  newMasterPostList.push(newPost);
+  this.setState({masterPostList: newMasterPostList});
+}
 
   render(){
     return (
       <div>
       <Switch>
       <Route exact path='/' component={NewFeedForm} />
-      <Route path='/newpost' component={FeedControl} />
+      <Route exact path='/' render={()=><Feed postList={this.state.masterPostList} />} />
+      <Route path='/newpost' render={()=><FeedControl onPostCreation={this.handleAddingNewPost}/>} />
       </Switch>
       </div>
     );

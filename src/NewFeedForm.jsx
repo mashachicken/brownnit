@@ -1,18 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function NewFeedForm(){
+function NewFeedForm(props){
   let _names = null;
   let _location = null;
-  let _issue = null;
+  let _post = null;
+
+  NewFeedForm.propTypes = {
+    onNewPostCreation: PropTypes.func
+  };
+
 
   function handleNewFormSubmission(event) {
     event.preventDefault();
-    console.log(_names.value);
-    console.log(_location.value);
-    console.log(_issue.value);
+    props.onNewPostCreation({names: _names.value, location: _location.value, post: _post.value});
     _names.value = '';
     _location.value = '';
-    _issue.value = '';
+    _post.value = '';
   }
 
   return (
@@ -29,7 +33,7 @@ function NewFeedForm(){
     ref={(input) => {_location = input;}}/>
     <textarea
     id='post'
-    ref={(textarea) => {_issue = textarea;}}/>
+    ref={(textarea) => {_post = textarea;}}/>
     <button type='submit'>Post!</button>
     </form>
     </div>
