@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Post from './Post'
 function Feed (props){
+  console.log(props)
   return(
     <div>
-    <p><hr/>
+    <p>
       {props.postList.map((post, index) =>
-        <Feed names={post.names}
+        <Post names={post.names}
           location={post.location}
-          issue={post.issue}
+          post={post.post}
           key={index}/>
       )} </p>
     </div>

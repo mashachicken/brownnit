@@ -13,9 +13,9 @@ class App extends React.Component{
   this.state = {
     masterPostList: []
   };
-  this.handleAddingANewPost = this.handleAddingANewPost.bind(this)
+  this.handleAddingNewPost = this.handleAddingNewPost.bind(this)
 }
-handleAddingANewPost(newPost){
+handleAddingNewPost(newPost){
   var newMasterPostList = this.state.masterPostList.slice();
   newMasterPostList.push(newPost);
   this.setState({masterPostList: newMasterPostList});
@@ -25,7 +25,6 @@ handleAddingANewPost(newPost){
     return (
       <div>
       <Switch>
-      <Route exact path='/' component={NewFeedForm} />
       <Route exact path='/' render={()=><Feed postList={this.state.masterPostList} />} />
       <Route path='/newpost' render={()=><FeedControl onPostCreation={this.handleAddingNewPost}/>} />
       </Switch>

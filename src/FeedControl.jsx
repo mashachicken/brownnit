@@ -21,7 +21,7 @@ class FeedControl extends React.Component {
   render(){
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage){
-      currentlyVisibleContent = <NewFeedForm />;
+      currentlyVisibleContent = <NewFeedForm onPostCreation={this.props.onPostCreation}/>;
     } else {
       currentlyVisibleContent = <Other onHandleClick={this.handleClick}/>;
     }

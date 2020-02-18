@@ -6,14 +6,11 @@ function NewFeedForm(props){
   let _location = null;
   let _post = null;
 
-  NewFeedForm.propTypes = {
-    onNewPostCreation: PropTypes.func
-  };
 
 
   function handleNewFormSubmission(event) {
     event.preventDefault();
-    props.onNewPostCreation({names: _names.value, location: _location.value, post: _post.value});
+    props.onPostCreation({names: _names.value, location: _location.value, post: _post.value});
     _names.value = '';
     _location.value = '';
     _post.value = '';
@@ -39,5 +36,9 @@ function NewFeedForm(props){
     </div>
   );
 }
+
+NewFeedForm.propTypes = {
+  onPostCreation: PropTypes.func
+};
 
 export default NewFeedForm;
