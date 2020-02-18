@@ -1,4 +1,7 @@
 import React from 'react';
+import Feed from './Feed';
+import Other from './Other';
+
 
 class FeedControl extends React.Component {
 
@@ -7,20 +10,19 @@ class FeedControl extends React.Component {
     this.state = {
       formVisibleOnPage: false
     };
-     // this.handleClick = this.handleClick.bind(this);
+     this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick(){
-  //   this.setState({formVisibleOnPage: true});
-  //   console.log('formVisibleOnPage is currently set to:' + this.state.formVisibleOnPage);
-  // }
+  handleClick(){
+    this.setState({formVisibleOnPage: true});
+  }
 
   render(){
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage){
       currentlyVisibleContent = <Feed />;
     } else {
-      currentlyVisibleContent = <Other />;
+      currentlyVisibleContent = <Other onHandleClick={this.handleClick}/>;
     }
     return (
       <div>
