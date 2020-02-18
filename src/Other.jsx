@@ -1,11 +1,11 @@
 import React from 'react';
 import Feed from './Feed';
 import PropTypes from 'prop-types';
-function Other (){
+function Other (props){
   return(
     <div>
     <p> Other component</p>
-    <button>Click to change state</button>
+    <button onClick={props.onHandleClick}>Click to change state</button>
     </div>
   );
 }
