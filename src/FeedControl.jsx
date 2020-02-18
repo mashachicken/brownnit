@@ -1,7 +1,7 @@
 import React from 'react';
 import Feed from './Feed';
 import Other from './Other';
-import NewFeed from './NewFeed';
+import NewFeedForm from './NewFeedForm';
 
 
 class FeedControl extends React.Component {
@@ -21,7 +21,7 @@ class FeedControl extends React.Component {
   render(){
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage){
-      currentlyVisibleContent = <NewFeed />;
+      currentlyVisibleContent = <NewFeedForm />;
     } else {
       currentlyVisibleContent = <Other onHandleClick={this.handleClick}/>;
     }

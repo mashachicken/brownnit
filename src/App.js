@@ -4,13 +4,13 @@ import FeedControl from './FeedControl';
 import { Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import NewFeed from './NewFeed';
+import NewFeedForm from './NewFeedForm';
 
 function App(){
   return (
     <div>
       <Switch>
-        <Route exact path='/' component={NewFeed} />
+        <Route exact path='/' component={NewFeedForm} />
         <Route path='/newpost' component={FeedControl} />
       </Switch>
     </div>
