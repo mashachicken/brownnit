@@ -6,15 +6,18 @@ import logo from './logo.svg';
 import './App.css';
 import NewFeedForm from './NewFeedForm';
 
-function App(){
-  return (
-    <div>
+function App() extends React.Component{
+
+  render(){
+    return (
+      <div>
       <Switch>
-        <Route exact path='/' component={NewFeedForm} />
-        <Route path='/newpost' component={FeedControl} />
+      <Route exact path='/' component={NewFeedForm} />
+      <Route path='/newpost' component={FeedControl} />
       </Switch>
-    </div>
-  );
-}
+      </div>
+    );
+  }
+  }
 
 export default App;
